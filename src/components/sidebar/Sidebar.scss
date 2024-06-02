@@ -32,5 +32,64 @@
 
   .sidebarRight {
     background-color: #2b2d31;
+    width: 300px;
+    position: relative;
+
+    .sidebarTop {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .sidebarChannels {
+      padding: 13px;
+
+      .sidebarChannelsHeader {
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+      }
+
+      .sidebarAddIcon {
+        cursor: pointer;
+      }
+    }
+
+    .sidebarFooter {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 93%;
+      padding-bottom: 10px;
+
+      .sidebarAccount {
+        display: flex;
+
+        .accountIcon {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+        }
+
+        .accountName {
+          color: #fff;
+          font-size: 14px;
+          padding-left: 8px;
+
+          span {
+            color: #acb1b9;
+          }
+        }
+      }
+
+      .sidebarVoice {
+        color: #acb1b9;
+      }
+    }
   }
 }
