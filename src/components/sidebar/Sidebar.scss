@@ -13,16 +13,16 @@
     .serverIcon {
       width: 60px;
       height: 60px;
-      background-color: gray;
-      border-radius: 9999px;
+      background-color: #fff;
+      border-radius: 50%;
       margin-top: 7px;
       margin-bottom: 10px;
       position: relative;
 
-      img {
+      .MuiSvgIcon-root {
         position: absolute;
         width: 50px;
-        top: 50%;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -73,6 +73,7 @@
           width: 32px;
           height: 32px;
           border-radius: 50%;
+          overflow: hidden;
         }
 
         .accountName {

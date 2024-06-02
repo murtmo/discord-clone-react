@@ -1,6 +1,7 @@
 import React from "react";
 import "./Sidebar.scss";
 
+import Face3Icon from "@mui/icons-material/Face3";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import MicIcon from "@mui/icons-material/Mic";
@@ -15,10 +16,10 @@ const Sidebar = () => {
       {/* sidebarLeft */}
       <div className="sidebarLeft">
         <div className="serverIcon">
-          <img src="./logo192.png" alt="" />
+          <Face3Icon />
         </div>
         <div className="serverIcon">
-          <img src="./logo192.png" alt="" />
+          <Face3Icon />
         </div>
       </div>
       {/* sidebarRight */}
