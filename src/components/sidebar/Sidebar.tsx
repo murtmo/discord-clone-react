@@ -7,19 +7,26 @@ import AddIcon from "@mui/icons-material/Add";
 import MicIcon from "@mui/icons-material/Mic";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import SettingsIcon from "@mui/icons-material/Settings";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 import SidebarChannel from "./SidebarChannel";
+import { auth } from "../../firebase";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       {/* sidebarLeft */}
       <div className="sidebarLeft">
-        <div className="serverIcon">
-          <Face3Icon />
+        <div className="serverIconWrap">
+          <div className="serverIcon">
+            <Face3Icon />
+          </div>
+          <div className="serverIcon">
+            <Face3Icon />
+          </div>
         </div>
-        <div className="serverIcon">
-          <Face3Icon />
+        <div className="logoutIcon" onClick={() => auth.signOut()}>
+          <LogoutIcon />
         </div>
       </div>
       {/* sidebarRight */}
