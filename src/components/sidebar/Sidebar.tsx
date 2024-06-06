@@ -11,8 +11,11 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 import SidebarChannel from "./SidebarChannel";
 import { auth } from "../../firebase";
+import { useAppSelector } from "../../app/hooks";
 
 const Sidebar = () => {
+  const user = useAppSelector((state) => state.user);
+
   return (
     <div className="sidebar">
       {/* sidebarLeft */}
@@ -55,11 +58,11 @@ const Sidebar = () => {
           <div className="sidebarFooter">
             <div className="sidebarAccount">
               <div className="accountIcon">
-                <img src="./icon.png" alt="account icon" />
+                <img src={user?.photo} alt="account icon" />
               </div>
               <div className="accountName">
-                <p>murtmo</p>
-                <span>#8162</span>
+                <p>{user?.displayName}</p>
+                <span>#{user?.uid.substring(0, 4)}</span>
               </div>
             </div>
 
