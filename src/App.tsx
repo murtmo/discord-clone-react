@@ -9,7 +9,7 @@ import Chat from "./components/chat/Chat";
 import Login from "./components/login/Login";
 
 function App() {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
