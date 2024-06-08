@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidebar.scss";
 
 import Face3Icon from "@mui/icons-material/Face3";
@@ -11,16 +11,27 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 import SidebarChannel from "./SidebarChannel";
 import { auth, db } from "../../firebase";
-import { collection, query, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  query,
+  onSnapshot,
+  DocumentData,
+} from "firebase/firestore";
 import { useAppSelector } from "../../app/hooks";
 
+interface Channel {
+  id: string;
+  channel: DocumentData;
+}
+
 const Sidebar = () => {
+  const [channels, setChannels] = useState<Channel[]>([]);
   const user = useAppSelector((state) => state.user);
 
   const q = query(collection(db, "channels"));
 
   useEffect(() => {
-    const channelsResults = [];
+    const channelsResults: Channel[] = [];
     onSnapshot(q, (querySnapshot) => {
       querySnapshot.docs.forEach((doc) => {
         channelsResults.push({
@@ -28,6 +39,7 @@ const Sidebar = () => {
           channel: doc.data(),
         });
       });
+      setChannels(channelsResults);
     });
   }, []);
 
