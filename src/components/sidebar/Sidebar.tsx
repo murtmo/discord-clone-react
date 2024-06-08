@@ -75,11 +75,15 @@ const Sidebar = () => {
           </div>
 
           <div className="sidebarChannelsList">
-            <SidebarChannel />
-            <SidebarChannel />
-            <SidebarChannel />
-            <SidebarChannel />
-            <SidebarChannel />
+            {channels.map((channel) => {
+              return (
+                <SidebarChannel
+                  key={channel.id}
+                  channel={channel}
+                  id={channel.id}
+                />
+              );
+            })}
           </div>
 
           <div className="sidebarFooter">
