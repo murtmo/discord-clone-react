@@ -10,13 +10,25 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import SidebarChannel from "./SidebarChannel";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { useAppSelector } from "../../app/hooks";
 import useCollection from "../../hooks/useCollection";
+import { addDoc, collection } from "firebase/firestore";
 
 const Sidebar = () => {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
   const { documents: channels } = useCollection("channels");
+
+  const addChannel = async () => {
+    let channelName: string | null =
+      prompt("チャンネルの名前を入力してください");
+
+    if (channelName) {
+      await addDoc(collection(db, "channels"), {
+        channelName: channelName,
+      });
+    }
+  };
 
   return (
     <div className="sidebar">
@@ -46,7 +58,7 @@ const Sidebar = () => {
             <div className="sidebarHeader">
               <ExpandMoreIcon /> プログラミングチャンネル
             </div>
-            <AddIcon className="sidebarAddIcon" />
+            <AddIcon className="sidebarAddIcon" onClick={() => addChannel()} />
           </div>
 
           <div className="sidebarChannelsList">
