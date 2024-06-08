@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Sidebar.scss";
 
 import Face3Icon from "@mui/icons-material/Face3";
@@ -10,38 +10,13 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import SidebarChannel from "./SidebarChannel";
-import { auth, db } from "../../firebase";
-import {
-  collection,
-  query,
-  onSnapshot,
-  DocumentData,
-} from "firebase/firestore";
+import { auth } from "../../firebase";
 import { useAppSelector } from "../../app/hooks";
-
-interface Channel {
-  id: string;
-  channel: DocumentData;
-}
+import useCollection from "../../hooks/useCollection";
 
 const Sidebar = () => {
-  const [channels, setChannels] = useState<Channel[]>([]);
   const user = useAppSelector((state) => state.user);
-
-  const q = query(collection(db, "channels"));
-
-  useEffect(() => {
-    const channelsResults: Channel[] = [];
-    onSnapshot(q, (querySnapshot) => {
-      querySnapshot.docs.forEach((doc) => {
-        channelsResults.push({
-          id: doc.id,
-          channel: doc.data(),
-        });
-      });
-      setChannels(channelsResults);
-    });
-  }, []);
+  const { documents: channels } = useCollection("channels");
 
   return (
     <div className="sidebar">
