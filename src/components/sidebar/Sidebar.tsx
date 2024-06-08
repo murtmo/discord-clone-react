@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Sidebar.scss";
 
 import Face3Icon from "@mui/icons-material/Face3";
@@ -10,11 +10,26 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 import SidebarChannel from "./SidebarChannel";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
+import { collection, query, onSnapshot } from "firebase/firestore";
 import { useAppSelector } from "../../app/hooks";
 
 const Sidebar = () => {
   const user = useAppSelector((state) => state.user);
+
+  const q = query(collection(db, "channels"));
+
+  useEffect(() => {
+    const channelsResults = [];
+    onSnapshot(q, (querySnapshot) => {
+      querySnapshot.docs.forEach((doc) => {
+        channelsResults.push({
+          id: doc.id,
+          channel: doc.data(),
+        });
+      });
+    });
+  }, []);
 
   return (
     <div className="sidebar">
