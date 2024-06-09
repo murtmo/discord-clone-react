@@ -72,23 +72,23 @@ const Sidebar = () => {
               );
             })}
           </div>
+        </div>
 
-          <div className="sidebarFooter">
-            <div className="sidebarAccount">
-              <div className="accountIcon">
-                <img src={user?.photo} alt="account icon" />
-              </div>
-              <div className="accountName">
-                <p>{user?.displayName}</p>
-                <span>#{user?.uid.substring(0, 4)}</span>
-              </div>
+        <div className="sidebarFooter">
+          <div className="sidebarAccount">
+            <div className="accountIcon">
+              <img src={user?.photo} alt="account icon" />
             </div>
+            <div className="accountName">
+              <p>{user?.displayName}</p>
+              <span>#{user?.uid.substring(0, 4)}</span>
+            </div>
+          </div>
 
-            <div className="sidebarVoice">
-              <MicIcon />
-              <HeadphonesIcon />
-              <SettingsIcon />
-            </div>
+          <div className="sidebarVoice">
+            <MicIcon />
+            <HeadphonesIcon />
+            <SettingsIcon />
           </div>
         </div>
       </div>
