@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Chat.scss";
 
 import ChatHeader from "./ChatHeader";
@@ -16,15 +16,54 @@ import {
   serverTimestamp,
   DocumentData,
   CollectionReference,
+  onSnapshot,
+  Timestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
+interface Messages {
+  message: string;
+  timestamp: Timestamp;
+  user: {
+    uid: string;
+    photo: string;
+    email: string;
+    displayName: string;
+  };
+}
+
 const Chat = () => {
   const [inputText, setInputText] = useState<string>("");
+  const [messages, setMessages] = useState<Messages[]>([]);
+  console.log(messages);
 
   const channelName = useAppSelector((state) => state.channel.channelName);
   const channelId = useAppSelector((state) => state.channel.channelId);
   const user = useAppSelector((state) => state.user.user);
+
+  const collectionRef: CollectionReference<DocumentData> = collection(
+    db,
+    "channels",
+    String(channelId),
+    "messages"
+  );
+
+  useEffect(() => {
+    console.log(" ---------- useEffect of Chat.tsx ----------");
+
+    onSnapshot(collectionRef, (snapshot) => {
+      let results: Messages[] = [];
+      snapshot.docs.forEach((doc) => {
+        results.push({
+          message: doc.data().message,
+          timestamp: doc.data().timestamp,
+          user: doc.data().user,
+        });
+      });
+      setMessages(results);
+      console.log(results);
+    });
+  }, [channelId]);
 
   const sendMessage = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -33,12 +72,6 @@ const Chat = () => {
 
     // channels コレクションの中の messages コレクションの中に情報を入れる
     // 情報... date(timestap), user, message(inputText)
-    const collectionRef: CollectionReference<DocumentData> = collection(
-      db,
-      "channels",
-      String(channelId),
-      "messages"
-    );
 
     await addDoc(collectionRef, {
       message: inputText,
