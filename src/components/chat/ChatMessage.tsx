@@ -25,7 +25,7 @@ const ChatMessage = (props: Props) => {
         <h4>
           {user?.displayName}
           <span className="messageTimeStamp">
-            {new Date(timestamp.toDate()).toLocaleString()}
+            {timestamp.toDate().toLocaleString()}
           </span>
         </h4>
         <p>{message}</p>

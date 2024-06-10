@@ -29,6 +29,8 @@ const Chat = () => {
 
   const { subDocuments: messages } = useSubCollection("channels", "messages");
 
+  const timestamp = serverTimestamp();
+
   const collectionRef: CollectionReference<DocumentData> = collection(
     db,
     "channels",
@@ -46,7 +48,7 @@ const Chat = () => {
 
     await addDoc(collectionRef, {
       message: inputText,
-      timestamp: serverTimestamp(),
+      timestamp: timestamp,
       user: user,
     });
 

@@ -26,7 +26,6 @@ const useSubCollection = (
   collectionName: string,
   subCollectionName: string
 ) => {
-  // const [messages, setMessages] = useState<Messages[]>([]);
   const [subDocuments, setSubDocuments] = useState<Messages[]>([]);
   const channelId = useAppSelector((state) => state.channel.channelId);
 
@@ -46,12 +45,11 @@ const useSubCollection = (
       snapshot.docs.forEach((doc) => {
         results.push({
           message: doc.data().message,
-          timestamp: doc.data().timestamp,
+          timestamp: doc.data({ serverTimestamps: "estimate" }).timestamp,
           user: doc.data().user,
         });
       });
       setSubDocuments(results);
-      console.log(results);
     });
   }, [channelId]);
 
