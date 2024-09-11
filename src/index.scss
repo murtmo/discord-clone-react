@@ -1,6 +1,32 @@
+@import url(./reset.scss);
+
+:root {
+  /* color */
+  --owl-color-primary: #1a1d2d; /* ダークネイビー */
+  --owl-color-secondary: #2c2e3e; /* ダークグレー */
+  --owl-color-accent: #ffd700; /* ゴールド */
+  --owl-color-background: #121b28; /* ミッドナイトブルー */
+  --owl-color-text: #e0e0e0; /* ライトグレー */
+  --owl-color-hover: #ffd700; /* ホバー時のゴールド */
+
+  /* font size */
+  --owl-font-size-small: 14px;
+  --owl-font-size-medium: 16px;
+  --owl-font-size-large: 18px;
+
+  /* spacing */
+  --owl-spacing-small: 8px;
+  --owl-spacing-medium: 16px;
+  --owl-spacing-large: 24px;
+
+  /* border radius */
+  --owl-border-radius: 4px;
+}
+
 * {
   margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  color: var(--owl-color-primary);
 
   img {
     width: 100%;
@@ -9,11 +35,16 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--owl-color-primary);
+
+  a,
+  button {
+    cursor: pointer;
+  }
+
+  button {
+    border: none;
+  }
 }
 
 code {

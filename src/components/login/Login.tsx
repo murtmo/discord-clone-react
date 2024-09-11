@@ -1,7 +1,5 @@
-import React from "react";
 import "./Login.scss";
 
-import Face3Icon from "@mui/icons-material/Face3";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
 
@@ -13,11 +11,10 @@ const Login = () => {
   };
   return (
     <div className="login">
-      <div className="loginLogo">
-        <Face3Icon />
-      </div>
-
-      <button onClick={signIn}>login</button>
+      <h1 className="login-title">Welcome to Chat Chat 🦉🌙</h1>
+      <button className="login-button" onClick={signIn}>
+        Log In
+      </button>
     </div>
   );
 };

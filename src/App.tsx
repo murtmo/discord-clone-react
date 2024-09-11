@@ -7,6 +7,7 @@ import "./App.scss";
 import Sidebar from "./components/sidebar/Sidebar";
 import Chat from "./components/chat/Chat";
 import Login from "./components/login/Login";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const user = useAppSelector((state) => state.user.user);
@@ -39,6 +40,7 @@ function App() {
       ) : (
         <>
           <Login />
+          <Footer />
         </>
       )}
     </div>
