@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Chat.scss";
+import styles from "./Chat.module.scss";
 
-import ChatHeader from "./ChatHeader";
-import ChatMessage from "./ChatMessage";
+import ChatHeader from "../chatHeader/ChatHeader";
+import ChatMessage from "../chatMessage/ChatMessage";
 
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
@@ -56,9 +56,9 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
+    <div className={styles.chat}>
       <ChatHeader channelName={channelName} />
-      <div className="chatMessageWrap">
+      <div className={styles.chatMessageWrap}>
         {messages.map((message) => {
           return (
             <ChatMessage
@@ -72,8 +72,8 @@ const Chat = () => {
           );
         })}
       </div>
-      <div className="chatInput">
-        <div className="chatInputAddIcon">
+      <div className={styles.chatInput}>
+        <div className={styles.chatInputAddIcon}>
           <AddCircleOutlineIcon />
         </div>
 
@@ -88,7 +88,7 @@ const Chat = () => {
           />
           <button
             type="submit"
-            className="chatInputButton"
+            className={styles.chatInputButton}
             onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
               sendMessage(e);
             }}

@@ -1,5 +1,5 @@
 import React from "react";
-import "./ChannelName.scss";
+import styles from "./ChannelName.module.scss";
 
 import { DocumentData } from "firebase/firestore";
 import { useAppDispatch } from "../../app/hooks";
@@ -16,7 +16,7 @@ const ChannelName = (props: Props) => {
 
   return (
     <div
-      className="channelName"
+      className={styles.channelName}
       onClick={() =>
         dispatch(
           setChannelInfo({
@@ -27,7 +27,7 @@ const ChannelName = (props: Props) => {
       }
     >
       <h4>
-        <span className="channelNameHash">#</span>
+        <span className={styles.channelNameHash}>#</span>
         {channel.channel.channelName}
       </h4>
     </div>

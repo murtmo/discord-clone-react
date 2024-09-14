@@ -1,5 +1,4 @@
-import React from "react";
-import "./ChatMessage.scss";
+import styles from "./ChatMessage.module.scss";
 
 import { Avatar, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -35,18 +34,20 @@ const ChatMessage = (props: Props) => {
     }
   };
   return (
-    <div className="chatMessage">
-      <div className="messageInfo">
-        <p className="userIcon">
+    <div className={styles.chatMessage}>
+      <div className={styles.messageInfo}>
+        <p className={styles.userIcon}>
           <Avatar src={user?.photo} />
         </p>
-        <p className="userName">{user?.displayName}</p>
-        <p className="messageTime">{timestamp.toDate().toLocaleString()}</p>
+        <p className={styles.userName}>{user?.displayName}</p>
+        <p className={styles.messageTime}>
+          {timestamp.toDate().toLocaleString()}
+        </p>
         <IconButton onClick={deleteMessage} size="small">
           <DeleteIcon />
         </IconButton>
       </div>
-      <p className="messageData">{message}</p>
+      <p className={styles.messageData}>{message}</p>
     </div>
   );
 };

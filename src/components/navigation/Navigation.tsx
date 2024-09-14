@@ -1,10 +1,10 @@
-import "./Navigation.scss";
+import styles from "./Navigation.module.scss";
 
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import TryIcon from "@mui/icons-material/Try";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-import ChannelName from "./ChannelName";
+import ChannelName from "../channelName/ChannelName";
 
 import { auth, db } from "../../firebase";
 import { useAppSelector } from "../../app/hooks";
@@ -27,30 +27,30 @@ const Navigation = () => {
   };
 
   return (
-    <div className="navigation">
-      <div className="navigationInr">
-        <div className="generalData">
-          <div className="serverIconWrap">
-            <div className="serverIcon">🦉</div>
+    <div className={styles.navigation}>
+      <div className={styles.navigationInr}>
+        <div className={styles.generalData}>
+          <div className={styles.serverIconWrap}>
+            <div className={styles.serverIcon}>🦉</div>
           </div>
-          <div className="accountInfo">
-            <div className="accountIcon">
+          <div className={styles.accountInfo}>
+            <div className={styles.accountIcon}>
               <img src={user?.photo} alt="account icon" />
             </div>
             {/* <div className="accountName">
               <p>{user?.displayName}</p>
               <span>#{user?.uid.substring(0, 4)}</span>
             </div> */}
-            <div className="logoutIcon" onClick={() => auth.signOut()}>
+            <div className={styles.logoutIcon} onClick={() => auth.signOut()}>
               <LogoutIcon />
             </div>
           </div>
         </div>
-        <div className="channelData">
-          <div className="channelDataInr">
-            <TryIcon className="channelIcon" />
-            <div className="channelListWrap">
-              <div className="channelList">
+        <div className={styles.channelData}>
+          <div className={styles.channelDataInr}>
+            <TryIcon className={styles.channelIcon} />
+            <div className={styles.channelListWrap}>
+              <div className={styles.channelList}>
                 {channels.map((channel) => {
                   return (
                     <ChannelName
@@ -64,7 +64,7 @@ const Navigation = () => {
             </div>
           </div>
           <AddRoundedIcon
-            className="channelAddIcon"
+            className={styles.channelAddIcon}
             onClick={() => addChannel()}
           />
         </div>

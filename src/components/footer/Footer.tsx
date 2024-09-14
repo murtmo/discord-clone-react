@@ -1,9 +1,9 @@
-import "./Footer.scss";
+import styles from "./Footer.module.scss";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <p>&copy; {currentYear}, murtmo</p>
     </footer>
   );

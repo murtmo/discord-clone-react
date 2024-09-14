@@ -7,17 +7,17 @@
   height: 100vh;
   gap: 30px;
 
-  .login-title {
+  .loginTitle {
     font-size: 40px;
     color: var(--owl-color-primary);
   }
 
-  .login-button-list {
+  .loginButtonList {
     display: flex;
     align-items: center;
   }
 
-  .login-button {
+  .loginButton {
     font-size: var(--owl-font-size-medium);
     padding: var(--owl-spacing-small) var(--owl-spacing-medium);
     border-radius: var(--owl-border-radius);
@@ -31,12 +31,12 @@
       border: 1px solid var(--owl-color-background);
     }
 
-    & + .login-button {
+    & + .loginButton {
       margin-left: 8px;
     }
   }
 
-  .login-button:hover {
+  .loginButton:hover {
     color: var(--owl-color-text);
     background-color: var(--owl-color-background);
     border: 1px solid var(--owl-color-background);

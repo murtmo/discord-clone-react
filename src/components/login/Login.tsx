@@ -1,4 +1,4 @@
-import "./Login.scss";
+import styles from "./Login.module.scss";
 
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
@@ -10,10 +10,10 @@ const Login = () => {
     });
   };
   return (
-    <div className="login">
-      <h1 className="login-title">Welcome to Chat Chat 🦉🌙</h1>
-      <div className="login-button-list">
-        <button className="login-button" onClick={signIn}>
+    <div className={styles.login}>
+      <h1 className={styles.loginTitle}>Welcome to Chat Chat 🦉🌙</h1>
+      <div className={styles.loginButtonList}>
+        <button className={styles.loginButton} onClick={signIn}>
           Log In
         </button>
         {/* <button className="login-button guest">Join as Guest</button> */}
