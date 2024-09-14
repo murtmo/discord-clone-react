@@ -1,30 +1,5 @@
 @import url(./reset.scss);
-
-:root {
-  /* color */
-  --owl-color-primary: #1a1d2d; /* ダークネイビー */
-  --owl-color-secondary: #2c2e3e; /* ダークグレー */
-  --owl-color-accent: #ffd700; /* ゴールド */
-  --owl-color-background: #121b28; /* ミッドナイトブルー */
-  --owl-color-text: #e0e0e0; /* ライトグレー */
-  --owl-color-hover: #ffd700; /* ホバー時のゴールド */
-
-  /* font size */
-  --owl-font-size-small: 14px;
-  --owl-font-size-medium: 16px;
-  --owl-font-size-large: 18px;
-
-  /* spacing */
-  --owl-spacing-small: 8px;
-  --owl-spacing-medium: 16px;
-  --owl-spacing-large: 24px;
-
-  /* border radius */
-  --owl-border-radius: 8px;
-
-  /* transition */
-  --owl-transition-duration: 0.4s;
-}
+@import url(./variables.scss);
 
 * {
   margin: 0;
@@ -39,7 +14,8 @@
 
 body {
   margin: 0;
-  background-color: var(--owl-color-text);
+  background-color: #fffdee;
+  // background-color: var(--owl-color-text);
 
   a,
   button {

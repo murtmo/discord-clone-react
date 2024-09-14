@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { auth } from "./firebase";
 import { login, logout } from "./features/userSlice";
 
-import "./App.scss";
+import styles from "./App.module.scss";
 
 import Navigation from "./components/navigation/Navigation";
 import Chat from "./components/chat/Chat";
@@ -32,7 +32,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       {user ? (
         <>
           <Navigation />

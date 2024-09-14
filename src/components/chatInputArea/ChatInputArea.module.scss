@@ -1,0 +1,36 @@
+.chatInputArea {
+  height: auto;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--owl-color-primary);
+  border-radius: var(--owl-border-radius);
+  color: #6d6f78;
+  padding: 16px;
+
+  .chatInputAddIcon {
+    width: 24px;
+    height: 24px;
+    path {
+      color: #fff;
+    }
+  }
+
+  .chatInputForm {
+    flex-grow: 1;
+
+    input {
+      padding: 16px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      width: 100%;
+    }
+
+    .chatInputButton {
+      display: none;
+    }
+  }
+}

@@ -7,41 +7,4 @@
     overflow-y: scroll;
     flex-grow: 1;
   }
-
-  .chatInput {
-    height: auto;
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    background-color: var(--owl-color-primary);
-    border-radius: var(--owl-border-radius);
-    color: #6d6f78;
-
-    form {
-      flex-grow: 1;
-
-      input {
-        padding: 16px;
-        background: transparent;
-        border: none;
-        outline: none;
-        color: #fff;
-        width: 100%;
-      }
-
-      .chatInputButton {
-        display: none;
-      }
-    }
-
-    .chatInputAddIcon {
-      width: 24px;
-      height: 24px;
-      path {
-        color: #fff;
-      }
-    }
-  }
 }

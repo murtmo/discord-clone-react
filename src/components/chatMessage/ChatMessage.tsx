@@ -1,11 +1,12 @@
 import styles from "./ChatMessage.module.scss";
 
-import { Avatar, IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-
+// firebase
+import { db } from "../../firebase";
 import { Timestamp, deleteDoc, doc } from "firebase/firestore";
 
-import { db } from "../../firebase";
+// components
+import { Avatar, IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 type Props = {
   message: string;
