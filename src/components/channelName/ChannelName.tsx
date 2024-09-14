@@ -1,22 +1,31 @@
-import React from "react";
 import styles from "./ChannelName.module.scss";
 
+// firebase
 import { DocumentData } from "firebase/firestore";
+
+// hooks
 import { useAppDispatch } from "../../app/hooks";
 import { setChannelInfo } from "../../features/channelSlice";
 
+// props
 type Props = {
   id: string;
   channel: DocumentData;
+  currentChannelId: string | null;
 };
 
 const ChannelName = (props: Props) => {
-  const { id, channel } = props;
+  const { id, channel, currentChannelId } = props;
+
   const dispatch = useAppDispatch();
 
   return (
-    <div
-      className={styles.channelName}
+    <li
+      className={
+        currentChannelId === id
+          ? `${styles.isActive} ${styles.channelName}`
+          : `${styles.channelName}`
+      }
       onClick={() =>
         dispatch(
           setChannelInfo({
@@ -30,7 +39,7 @@ const ChannelName = (props: Props) => {
         <span className={styles.channelNameHash}>#</span>
         {channel.channel.channelName}
       </h4>
-    </div>
+    </li>
   );
 };
 export default ChannelName;

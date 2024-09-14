@@ -1,3 +1,5 @@
+import { channelData } from "../../types/Types";
+
 import styles from "./Navigation.module.scss";
 
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
@@ -11,13 +13,19 @@ import { useAppSelector } from "../../app/hooks";
 import useCollection from "../../hooks/useCollection";
 import { addDoc, collection } from "firebase/firestore";
 
-const Navigation = () => {
+type Props = {
+  channelId: string | null;
+};
+
+const Navigation = (props: Props) => {
+  const { channelId } = props;
+
   const user = useAppSelector((state) => state.user.user);
   const { documents: channels } = useCollection("channels");
 
   const addChannel = async () => {
     let channelName: string | null =
-      prompt("スクラップタイトルを入力してください");
+      prompt("チャットタイトルを入力してください");
 
     if (channelName) {
       await addDoc(collection(db, "channels"), {
@@ -57,6 +65,7 @@ const Navigation = () => {
                       key={channel.id}
                       channel={channel}
                       id={channel.id}
+                      currentChannelId={channelId}
                     />
                   );
                 })}

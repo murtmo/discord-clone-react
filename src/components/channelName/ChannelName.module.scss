@@ -6,19 +6,22 @@
     align-items: center;
     padding: 4px 8px;
     cursor: pointer;
-
-    &:hover {
-      color: var(--owl-color-text);
-      background-color: var(--owl-color-primary);
-      border-radius: var(--owl-border-radius);
-
-      .channelNameHash {
-        color: #fff;
-      }
-    }
   }
 
   .channelNameHash {
     margin-right: 4px;
+  }
+
+  &:hover,
+  &.isActive {
+    h4 {
+      color: var(--owl-color-text);
+      background-color: var(--owl-color-primary);
+      border-radius: var(--owl-border-radius);
+    }
+
+    .channelNameHash {
+      color: #fff;
+    }
   }
 }

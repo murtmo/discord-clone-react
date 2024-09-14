@@ -1,18 +1,28 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./app/hooks";
-import { auth } from "./firebase";
-import { login, logout } from "./features/userSlice";
+import { useEffect } from "react";
 
+// styles
 import styles from "./App.module.scss";
 
+// hooks
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { login, logout } from "./features/userSlice";
+
+// firebase
+import { auth } from "./firebase";
+
+// components
 import Navigation from "./components/navigation/Navigation";
 import Chat from "./components/chat/Chat";
 import Login from "./components/login/Login";
 import Footer from "./components/footer/Footer";
 
 function App() {
-  const user = useAppSelector((state) => state.user.user);
   const dispatch = useAppDispatch();
+
+  const user = useAppSelector((state) => state.user.user);
+
+  const channelId = useAppSelector((state) => state.channel.channelId);
+  const channelName = useAppSelector((state) => state.channel.channelName);
 
   useEffect(() => {
     auth.onAuthStateChanged((loginUser) => {
@@ -35,9 +45,9 @@ function App() {
     <div className={styles.App}>
       {user ? (
         <>
-          <Navigation />
+          <Navigation channelId={channelId} />
           <main>
-            <Chat />
+            <Chat channelId={channelId} channelName={channelName} />
           </main>
         </>
       ) : (

@@ -15,7 +15,6 @@ const ChatMessageList = (props: Props) => {
   const { messages, channelId } = props;
 
   const haveMessage = messages.length !== 0;
-  console.log(haveMessage);
 
   return (
     <div className={styles.ChatMessageList}>

@@ -12,6 +12,11 @@ export interface initialChannelState {
   channelName: string | null;
 }
 
+export type channelData = {
+  channelId: string | null;
+  channelName: string | null;
+};
+
 export type Message = {
   id: string;
   message: string;
