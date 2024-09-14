@@ -40,6 +40,9 @@ const Chat = () => {
   ) => {
     e.preventDefault();
 
+    // 空のメッセージを送信しないようにチェックを追加
+    if (inputText.trim() === "") return;
+
     // channels コレクションの中の messages コレクションの中に情報を入れる
     // 情報... date(timestap), user, message(inputText)
 
@@ -56,13 +59,15 @@ const Chat = () => {
     <div className="chat">
       <ChatHeader channelName={channelName} />
       <div className="chatMessageWrap">
-        {messages.map((message, index) => {
+        {messages.map((message) => {
           return (
             <ChatMessage
-              key={index}
+              key={message.id}
               message={message.message}
               timestamp={message.timestamp}
               user={message.user}
+              messageId={message.id}
+              channelId={String(channelId)}
             />
           );
         })}
@@ -75,7 +80,7 @@ const Chat = () => {
         <form>
           <input
             type="text"
-            placeholder={channelName + " にメモする"}
+            placeholder={`${channelName} にメモする`}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setInputText(e.target.value);
             }}
