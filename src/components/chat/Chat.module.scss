@@ -3,6 +3,10 @@
   flex-direction: column;
   height: calc(100vh - 160px);
 
+  .container {
+    margin-top: 24px;
+  }
+
   .chatMessageWrap {
     overflow-y: scroll;
     flex-grow: 1;

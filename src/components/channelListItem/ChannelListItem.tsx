@@ -1,4 +1,4 @@
-import styles from "./ChannelName.module.scss";
+import styles from "./ChannelListItem.module.scss";
 
 // firebase
 import { DocumentData } from "firebase/firestore";
@@ -14,7 +14,7 @@ type Props = {
   currentChannelId: string | null;
 };
 
-const ChannelName = (props: Props) => {
+const ChannelListItem = (props: Props) => {
   const { id, channel, currentChannelId } = props;
 
   const dispatch = useAppDispatch();
@@ -42,4 +42,4 @@ const ChannelName = (props: Props) => {
     </li>
   );
 };
-export default ChannelName;
+export default ChannelListItem;

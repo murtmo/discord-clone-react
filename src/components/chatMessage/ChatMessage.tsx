@@ -8,6 +8,7 @@ import { Timestamp, deleteDoc, doc } from "firebase/firestore";
 import { Avatar, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+// props
 type Props = {
   message: string;
   timestamp: Timestamp;

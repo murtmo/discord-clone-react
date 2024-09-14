@@ -1,5 +1,6 @@
 import styles from "./ChatHeader.module.scss";
 
+// props
 type Props = {
   channelName: string | null;
 };

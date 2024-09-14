@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+
+// styles
 import styles from "./ChatInputArea.module.scss";
 
-import { useAppSelector } from "../../app/hooks";
-
+// firebase
 import {
   addDoc,
   collection,
@@ -12,8 +13,13 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
+// hooks
+import { useAppSelector } from "../../app/hooks";
+
+// components
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
+// props
 type Props = {
   channelName: string | null;
 };

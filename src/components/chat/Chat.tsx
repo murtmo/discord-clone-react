@@ -7,7 +7,7 @@ import styles from "./Chat.module.scss";
 import useSubCollection from "../../hooks/useSubCollection";
 
 // components
-import ChatHeader from "../chatHeader/ChatHeader";
+// import ChatHeader from "../chatHeader/ChatHeader";
 import ChatInputArea from "../chatInputArea/ChatInputArea";
 import ChatMessageList from "../chatMessageList/ChatMessageList";
 
@@ -20,8 +20,10 @@ const Chat = (props: channelData) => {
     <div className={styles.chat}>
       {channelId && (
         <>
-          <ChatHeader channelName={channelName} />
-          <div className={styles.chatMessageWrap}>
+          {/* <div className={styles.container}>
+            <ChatHeader channelName={channelName} />
+          </div> */}
+          <div className={`${styles.container} ${styles.chatMessageWrap}`}>
             <ChatMessageList messages={messages} channelId={channelId} />
           </div>
           <ChatInputArea channelName={channelName} />

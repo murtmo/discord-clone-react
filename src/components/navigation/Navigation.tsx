@@ -1,18 +1,20 @@
-import { channelData } from "../../types/Types";
-
 import styles from "./Navigation.module.scss";
 
+// firebase
+import { auth, db } from "../../firebase";
+import { addDoc, collection } from "firebase/firestore";
+
+// hooks
+import { useAppSelector } from "../../app/hooks";
+import useCollection from "../../hooks/useCollection";
+
+// components
+import ChannelListItem from "../channelListItem/ChannelListItem";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import TryIcon from "@mui/icons-material/Try";
 import LogoutIcon from "@mui/icons-material/Logout";
 
-import ChannelName from "../channelName/ChannelName";
-
-import { auth, db } from "../../firebase";
-import { useAppSelector } from "../../app/hooks";
-import useCollection from "../../hooks/useCollection";
-import { addDoc, collection } from "firebase/firestore";
-
+// props
 type Props = {
   channelId: string | null;
 };
@@ -45,10 +47,6 @@ const Navigation = (props: Props) => {
             <div className={styles.accountIcon}>
               <img src={user?.photo} alt="account icon" />
             </div>
-            {/* <div className="accountName">
-              <p>{user?.displayName}</p>
-              <span>#{user?.uid.substring(0, 4)}</span>
-            </div> */}
             <div className={styles.logoutIcon} onClick={() => auth.signOut()}>
               <LogoutIcon />
             </div>
@@ -58,10 +56,10 @@ const Navigation = (props: Props) => {
           <div className={styles.channelDataInr}>
             <TryIcon className={styles.channelIcon} />
             <div className={styles.channelListWrap}>
-              <div className={styles.channelList}>
+              <ul className={styles.channelList}>
                 {channels.map((channel) => {
                   return (
-                    <ChannelName
+                    <ChannelListItem
                       key={channel.id}
                       channel={channel}
                       id={channel.id}
@@ -69,7 +67,7 @@ const Navigation = (props: Props) => {
                     />
                   );
                 })}
-              </div>
+              </ul>
             </div>
           </div>
           <AddRoundedIcon

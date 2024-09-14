@@ -3,12 +3,12 @@ import { useEffect } from "react";
 // styles
 import styles from "./App.module.scss";
 
+// firebase
+import { auth } from "./firebase";
+
 // hooks
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { login, logout } from "./features/userSlice";
-
-// firebase
-import { auth } from "./firebase";
 
 // components
 import Navigation from "./components/navigation/Navigation";
@@ -19,8 +19,10 @@ import Footer from "./components/footer/Footer";
 function App() {
   const dispatch = useAppDispatch();
 
+  // user data
   const user = useAppSelector((state) => state.user.user);
 
+  // channel data
   const channelId = useAppSelector((state) => state.channel.channelId);
   const channelName = useAppSelector((state) => state.channel.channelName);
 

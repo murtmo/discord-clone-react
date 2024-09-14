@@ -6,6 +6,7 @@ import styles from "./ChatMessageList.module.scss";
 // components
 import ChatMessage from "../chatMessage/ChatMessage";
 
+// props
 type Props = {
   messages: Message[];
   channelId: string | null;
