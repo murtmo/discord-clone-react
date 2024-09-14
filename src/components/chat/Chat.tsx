@@ -5,9 +5,6 @@ import ChatHeader from "./ChatHeader";
 import ChatMessage from "./ChatMessage";
 
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
-import GifBoxIcon from "@mui/icons-material/GifBox";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
 import { useAppSelector } from "../../app/hooks";
 import {
@@ -71,11 +68,14 @@ const Chat = () => {
         })}
       </div>
       <div className="chatInput">
-        <AddCircleOutlineIcon />
+        <div className="chatInputAddIcon">
+          <AddCircleOutlineIcon />
+        </div>
+
         <form>
           <input
             type="text"
-            placeholder={channelName + "へメッセージを送る"}
+            placeholder={channelName + " にメモする"}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setInputText(e.target.value);
             }}
@@ -89,11 +89,6 @@ const Chat = () => {
             }}
           ></button>
         </form>
-        <div className="chatInputIcons">
-          <CardGiftcardIcon />
-          <GifBoxIcon />
-          <EmojiEmotionsIcon />
-        </div>
       </div>
     </div>
   );

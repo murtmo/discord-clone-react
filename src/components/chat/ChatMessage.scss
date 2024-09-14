@@ -1,15 +1,31 @@
 .chatMessage {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  color: #fff;
+  padding: 8px;
+  background-color: #fff;
 
-  .messageInfo {
-    padding: 20px 20px 20px 10px;
+  & + .chatMessage {
+    margin-top: 8px;
   }
 
-  .messageTimeStamp {
-    color: #7b7c85;
-    margin-left: 20px;
+  .messageInfo {
+    display: flex;
+    align-items: center;
+
+    .MuiAvatar-root {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .userName,
+  .messageTime {
+    margin-left: 16px;
+  }
+
+  .messageTime {
+    color: var(--owl-color-secondary);
+  }
+
+  .messageData {
+    margin-top: 16px;
   }
 }

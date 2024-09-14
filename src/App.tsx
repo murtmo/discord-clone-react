@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { auth } from "./firebase";
 import { login, logout } from "./features/userSlice";
+
 import "./App.scss";
 
-import Sidebar from "./components/sidebar/Sidebar";
+import Navigation from "./components/navigation/Navigation";
 import Chat from "./components/chat/Chat";
 import Login from "./components/login/Login";
 import Footer from "./components/footer/Footer";
@@ -34,8 +35,10 @@ function App() {
     <div className="App">
       {user ? (
         <>
-          <Sidebar />
-          <Chat />
+          <Navigation />
+          <main>
+            <Chat />
+          </main>
         </>
       ) : (
         <>

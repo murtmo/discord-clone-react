@@ -1,5 +1,6 @@
 import React from "react";
-import "./SidebarChannel.scss";
+import "./ChannelName.scss";
+
 import { DocumentData } from "firebase/firestore";
 import { useAppDispatch } from "../../app/hooks";
 import { setChannelInfo } from "../../features/channelSlice";
@@ -9,13 +10,13 @@ type Props = {
   channel: DocumentData;
 };
 
-const SidebarChannel = (props: Props) => {
+const ChannelName = (props: Props) => {
   const { id, channel } = props;
   const dispatch = useAppDispatch();
 
   return (
     <div
-      className="sidebarChannel"
+      className="channelName"
       onClick={() =>
         dispatch(
           setChannelInfo({
@@ -26,11 +27,10 @@ const SidebarChannel = (props: Props) => {
       }
     >
       <h4>
-        <span className="sidebarChannelHash">#</span>
+        <span className="channelNameHash">#</span>
         {channel.channel.channelName}
       </h4>
     </div>
   );
 };
-
-export default SidebarChannel;
+export default ChannelName;

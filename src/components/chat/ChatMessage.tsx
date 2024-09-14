@@ -20,18 +20,15 @@ const ChatMessage = (props: Props) => {
   const { message, timestamp, user } = props;
   return (
     <div className="chatMessage">
-      <Avatar src={user?.photo} />
       <div className="messageInfo">
-        <h4>
-          {user?.displayName}
-          <span className="messageTimeStamp">
-            {timestamp.toDate().toLocaleString()}
-          </span>
-        </h4>
-        <p>{message}</p>
+        <p className="userIcon">
+          <Avatar src={user?.photo} />
+        </p>
+        <p className="userName">{user?.displayName}</p>
+        <p className="messageTime">{timestamp.toDate().toLocaleString()}</p>
       </div>
+      <p className="messageData">{message}</p>
     </div>
   );
 };
-
 export default ChatMessage;

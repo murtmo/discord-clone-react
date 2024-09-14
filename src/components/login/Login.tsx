@@ -12,9 +12,12 @@ const Login = () => {
   return (
     <div className="login">
       <h1 className="login-title">Welcome to Chat Chat 🦉🌙</h1>
-      <button className="login-button" onClick={signIn}>
-        Log In
-      </button>
+      <div className="login-button-list">
+        <button className="login-button" onClick={signIn}>
+          Log In
+        </button>
+        {/* <button className="login-button guest">Join as Guest</button> */}
+      </div>
     </div>
   );
 };

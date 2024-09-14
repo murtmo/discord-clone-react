@@ -16,23 +16,10 @@ const ChatHeader = (props: Props) => {
   const { channelName } = props;
   return (
     <div className="chatHeader">
-      <div className="chatHeaderLeft">
-        <h3>
-          <span className="chatHeaderLeftHash">#</span>
-          {channelName}
-        </h3>
-      </div>
-      <div className="chatHeaderRight">
-        <NotificationsIcon />
-        <PushPinIcon />
-        <PeopleAltIcon />
-        <div className="chatHeaderSearch">
-          <input type="text" placeholder="検索" />
-          <SearchIcon />
-        </div>
-        <SendIcon />
-        <HelpIcon />
-      </div>
+      <h3>
+        <span className="chatHeaderHash">#</span>
+        {channelName}
+      </h3>
     </div>
   );
 };

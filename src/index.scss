@@ -20,13 +20,17 @@
   --owl-spacing-large: 24px;
 
   /* border radius */
-  --owl-border-radius: 4px;
+  --owl-border-radius: 8px;
+
+  /* transition */
+  --owl-transition-duration: 0.4s;
 }
 
 * {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   color: var(--owl-color-primary);
+  box-sizing: border-box;
 
   img {
     width: 100%;
@@ -35,7 +39,7 @@
 
 body {
   margin: 0;
-  background-color: var(--owl-color-primary);
+  background-color: var(--owl-color-text);
 
   a,
   button {
