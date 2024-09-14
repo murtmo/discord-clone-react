@@ -6,7 +6,7 @@ import styles from "./App.module.scss";
 // firebase
 import { auth } from "./firebase";
 
-// hooks
+// redux
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { login, logout } from "./features/userSlice";
 

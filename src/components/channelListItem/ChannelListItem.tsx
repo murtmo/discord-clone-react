@@ -3,7 +3,7 @@ import styles from "./ChannelListItem.module.scss";
 // firebase
 import { DocumentData } from "firebase/firestore";
 
-// hooks
+// redux
 import { useAppDispatch } from "../../app/hooks";
 import { setChannelInfo } from "../../features/channelSlice";
 
@@ -36,7 +36,7 @@ const ChannelListItem = (props: Props) => {
       }
     >
       <h4>
-        <span className={styles.channelNameHash}>#</span>
+        <span className={styles.channelNameHash}>🏠</span>
         {channel.channel.channelName}
       </h4>
     </li>

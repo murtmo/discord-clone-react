@@ -1,7 +1,6 @@
 @import "./styles/variables.scss";
 
 .App {
-  // display: flex;
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
@@ -17,14 +16,4 @@
     padding-right: 16px;
     padding-bottom: 16px;
   }
-
-  // .side {
-  //   flex: 0.3;
-  //   height: 100%;
-  // }
-
-  // .main {
-  //   flex-grow: 1;
-  //   height: 100%;
-  // }
 }

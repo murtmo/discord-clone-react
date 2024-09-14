@@ -1,4 +1,4 @@
-# Chat Chat 🦉
+# Turtle Talk Talk 🐢
 
 This is a real-time chat app.
 

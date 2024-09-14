@@ -1,4 +1,8 @@
 .channelName {
+  & + .channelName {
+    margin-left: 8px;
+  }
+
   h4 {
     white-space: nowrap;
     color: #7b7c85;

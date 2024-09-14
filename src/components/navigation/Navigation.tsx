@@ -4,14 +4,15 @@ import styles from "./Navigation.module.scss";
 import { auth, db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 
-// hooks
-import { useAppSelector } from "../../app/hooks";
+// redux
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import useCollection from "../../hooks/useCollection";
+import { setChannelInfo } from "../../features/channelSlice";
 
 // components
 import ChannelListItem from "../channelListItem/ChannelListItem";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import TryIcon from "@mui/icons-material/Try";
+import AppsIcon from "@mui/icons-material/Apps";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 // props
@@ -22,12 +23,15 @@ type Props = {
 const Navigation = (props: Props) => {
   const { channelId } = props;
 
+  const dispatch = useAppDispatch();
+
   const user = useAppSelector((state) => state.user.user);
   const { documents: channels } = useCollection("channels");
 
   const addChannel = async () => {
-    let channelName: string | null =
-      prompt("チャットタイトルを入力してください");
+    let channelName: string | null = prompt(
+      "新しいトークルーム名を入力してください"
+    );
 
     if (channelName) {
       await addDoc(collection(db, "channels"), {
@@ -40,8 +44,18 @@ const Navigation = (props: Props) => {
     <div className={styles.navigation}>
       <div className={styles.navigationInr}>
         <div className={styles.generalData}>
-          <div className={styles.serverIconWrap}>
-            <div className={styles.serverIcon}>🦉</div>
+          <div
+            className={styles.serverIconWrap}
+            onClick={() =>
+              dispatch(
+                setChannelInfo({
+                  channelId: null,
+                  channelName: null,
+                })
+              )
+            }
+          >
+            <div className={styles.serverIcon}>🐢</div>
           </div>
           <div className={styles.accountInfo}>
             <div className={styles.accountIcon}>
@@ -54,7 +68,7 @@ const Navigation = (props: Props) => {
         </div>
         <div className={styles.channelData}>
           <div className={styles.channelDataInr}>
-            <TryIcon className={styles.channelIcon} />
+            <AppsIcon className={styles.channelIcon} />
             <div className={styles.channelListWrap}>
               <ul className={styles.channelList}>
                 {channels.map((channel) => {

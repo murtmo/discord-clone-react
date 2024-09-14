@@ -35,12 +35,14 @@ const ChatMessage = (props: Props) => {
       }
     }
   };
+
   return (
     <div className={styles.chatMessage}>
       <div className={styles.messageInfo}>
         <p className={styles.userIcon}>
           <Avatar src={user?.photo} />
         </p>
+        {/* <p className={styles.messageData}>{message}</p> */}
         <p className={styles.userName}>{user?.displayName}</p>
         <p className={styles.messageTime}>
           {timestamp.toDate().toLocaleString()}
@@ -50,6 +52,15 @@ const ChatMessage = (props: Props) => {
         </IconButton>
       </div>
       <p className={styles.messageData}>{message}</p>
+      {/* <div>
+        <p className={styles.userName}>{user?.displayName}</p>
+        <p className={styles.messageTime}>
+          {timestamp.toDate().toLocaleString()}
+        </p>
+        <IconButton onClick={deleteMessage} size="small">
+          <DeleteIcon />
+        </IconButton>
+      </div> */}
     </div>
   );
 };

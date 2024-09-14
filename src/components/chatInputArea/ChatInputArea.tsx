@@ -13,11 +13,12 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
-// hooks
+// redux
 import { useAppSelector } from "../../app/hooks";
 
 // components
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import SendIcon from "@mui/icons-material/Send";
 
 // props
 type Props = {
@@ -60,14 +61,10 @@ const ChatInputArea = (props: Props) => {
 
   return (
     <div className={styles.chatInputArea}>
-      <div className={styles.chatInputAddIcon}>
-        <AddCircleOutlineIcon />
-      </div>
-
       <form className={styles.chatInputForm}>
         <input
           type="text"
-          placeholder={`${channelName} にメッセージをおくる`}
+          placeholder={`🏠 ${channelName} にメッセージをおくる`}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setInputText(e.target.value);
           }}
@@ -81,6 +78,9 @@ const ChatInputArea = (props: Props) => {
           }}
         ></button>
       </form>
+      <div className={styles.chatInputAddIcon}>
+        <SendIcon />
+      </div>
     </div>
   );
 };

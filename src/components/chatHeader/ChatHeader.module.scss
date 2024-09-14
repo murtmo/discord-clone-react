@@ -1,5 +1,14 @@
 .chatHeader {
-  .chatHeaderHash {
+  display: block;
+  text-align: center;
+
+  .label {
+    color: #2c2e3e61;
+    cursor: pointer;
+    display: inline;
+    font-size: var(--owl-font-size-small);
+  }
+  .hash {
     margin-right: 4px;
   }
 }

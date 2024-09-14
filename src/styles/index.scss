@@ -3,9 +3,11 @@
 
 * {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
   color: var(--owl-color-primary);
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--owl-font-size-medium);
+  line-height: 1.2;
 
   img {
     width: 100%;

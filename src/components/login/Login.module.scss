@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .login {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,10 @@
   gap: 30px;
 
   .loginTitle {
-    font-size: 40px;
+    font-size: 32px;
+    @include breakPoint("sp") {
+      font-size: 24px;
+    }
     color: var(--owl-color-primary);
   }
 
@@ -18,7 +23,6 @@
   }
 
   .loginButton {
-    font-size: var(--owl-font-size-medium);
     padding: var(--owl-spacing-small) var(--owl-spacing-medium);
     border-radius: var(--owl-border-radius);
     background-color: var(--owl-color-accent);

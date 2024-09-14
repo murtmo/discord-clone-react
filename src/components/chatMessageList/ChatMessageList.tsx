@@ -33,7 +33,11 @@ const ChatMessageList = (props: Props) => {
           );
         })
       ) : (
-        <p className={styles.nomessage}>メッセージはまだないみたいです😯</p>
+        <p className={styles.nomessage}>
+          トークはまだないみたいです🐢
+          <br />
+          メッセージを送ってみましょう
+        </p>
       )}
     </div>
   );
