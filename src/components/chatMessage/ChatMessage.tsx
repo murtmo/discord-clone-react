@@ -38,18 +38,18 @@ const ChatMessage = (props: Props) => {
 
   return (
     <div className={styles.chatMessage}>
+      <Avatar src={user?.photo} />
       <div className={styles.messageWrap}>
-        <Avatar src={user?.photo} />
         <p className={styles.messageBody}>{message}</p>
-      </div>
-      <div className={styles.messageData}>
-        <p className={styles.userName}>{user?.displayName}</p>
-        <p className={styles.messageTime}>
-          {timestamp.toDate().toLocaleString()}
-        </p>
-        <IconButton onClick={deleteMessage} size="small">
-          <DeleteIcon />
-        </IconButton>
+        <div className={styles.messageInfo}>
+          <p className={styles.userName}>{user?.displayName}</p>
+          <p className={styles.messageTime}>
+            {timestamp.toDate().toLocaleString()}
+          </p>
+          <IconButton onClick={deleteMessage} size="small">
+            <DeleteIcon />
+          </IconButton>
+        </div>
       </div>
     </div>
   );

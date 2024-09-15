@@ -48,7 +48,7 @@ function App() {
       {user ? (
         <>
           <Navigation channelId={channelId} />
-          <main>
+          <main className={styles.main}>
             <Chat channelId={channelId} channelName={channelName} />
           </main>
         </>

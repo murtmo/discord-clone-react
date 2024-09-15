@@ -72,15 +72,14 @@ const ChatInputArea = (props: Props) => {
         />
         <button
           type="submit"
-          className={styles.chatInputButton}
+          className={styles.chatInputAddIcon}
           onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             sendMessage(e);
           }}
-        ></button>
+        >
+          <SendIcon />
+        </button>
       </form>
-      <div className={styles.chatInputAddIcon}>
-        <SendIcon />
-      </div>
     </div>
   );
 };

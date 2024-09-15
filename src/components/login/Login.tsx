@@ -10,7 +10,7 @@ const Login = () => {
     });
   };
   return (
-    <div className={styles.login}>
+    <div className={`${styles.login}`}>
       <h1 className={styles.loginTitle}>
         Welcome to&nbsp;
         <br className="sp-only" />
