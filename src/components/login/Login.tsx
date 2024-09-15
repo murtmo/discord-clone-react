@@ -12,7 +12,9 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <h1 className={styles.loginTitle}>
-        Welcome to Turtle Talk Talk
+        Welcome to&nbsp;
+        <br className="sp-only" />
+        Turtle Talk Talk
         <span className={styles.icon}>🐢</span>
       </h1>
       <div className={styles.loginButtonList}>
