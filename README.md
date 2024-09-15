@@ -24,7 +24,6 @@ This is a real-time chat app.
 - User Authentication (Login/Logout)
 - Real-time Chat
 - Channel Creation and Management
-- Discord-like User Interface
 
 ## Getting Started 🚀
 
