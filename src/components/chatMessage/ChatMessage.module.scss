@@ -1,12 +1,13 @@
 .chatMessage {
   padding: 16px;
-  background-color: #fff;
+  background-color: var(--owl-color-background-light);
+  border-radius: var(--owl-border-radius);
 
   & + .chatMessage {
     margin-top: 8px;
   }
 
-  .messageInfo {
+  .messageWrap {
     display: flex;
     align-items: center;
 
@@ -16,16 +17,21 @@
     }
   }
 
-  .userName,
+  .messageData {
+    font-size: var(--owl-font-size-small);
+  }
   .messageTime {
-    margin-left: 16px;
+    margin-left: 12px;
   }
 
-  .messageTime {
-    color: var(--owl-color-secondary);
+  .messageBody {
+    margin-left: 8px;
+    font-size: var(--owl-font-size-small);
   }
 
   .messageData {
-    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 }

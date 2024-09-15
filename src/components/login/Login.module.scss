@@ -10,11 +10,17 @@
   gap: 30px;
 
   .loginTitle {
+    color: var(--owl-color-primary);
     font-size: 32px;
     @include breakPoint("sp") {
       font-size: 24px;
     }
-    color: var(--owl-color-primary);
+
+    .icon {
+      margin-left: 4px;
+      display: inline-block;
+      @include nosonosoAnimation();
+    }
   }
 
   .loginButtonList {

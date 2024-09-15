@@ -11,7 +11,10 @@ const Login = () => {
   };
   return (
     <div className={styles.login}>
-      <h1 className={styles.loginTitle}>Welcome to Turtle Talk Talk 🐢</h1>
+      <h1 className={styles.loginTitle}>
+        Welcome to Turtle Talk Talk
+        <span className={styles.icon}>🐢</span>
+      </h1>
       <div className={styles.loginButtonList}>
         <button className={styles.loginButton} onClick={signIn}>
           Log In
