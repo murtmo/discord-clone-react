@@ -6,6 +6,9 @@
     flex-direction: column;
     flex-grow: 1;
     padding-top: 32px;
+    @include breakPoint("sp") {
+      padding-top: 16px;
+    }
   }
 
   .generalData {
@@ -77,6 +80,9 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 24px;
+    @include breakPoint("sp") {
+      margin-top: 16px;
+    }
 
     .channelDataInr {
       width: calc(100% - 30px);

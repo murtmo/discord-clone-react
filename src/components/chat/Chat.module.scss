@@ -1,11 +1,16 @@
+@import "../../styles/variables.scss";
+
 .chat {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 180px);
+  height: 100%;
   position: relative;
 
   .container {
     margin-top: 24px;
+    @include breakPoint("sp") {
+      margin-top: 16px;
+    }
   }
 
   .chatMessageWrap {

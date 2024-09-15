@@ -4,39 +4,35 @@
   padding: 16px;
   background-color: var(--owl-color-background-light);
   border-radius: var(--owl-border-radius);
+  display: flex;
 
   & + .chatMessage {
     margin-top: 8px;
   }
 
+  .MuiAvatar-root {
+    width: 32px;
+    height: 32px;
+  }
+
   .messageWrap {
-    display: flex;
-
-    .MuiAvatar-root {
-      width: 32px;
-      height: 32px;
-    }
-  }
-
-  .messageData {
-    font-size: var(--owl-font-size-small);
-  }
-  .messageTime {
-    margin-left: 12px;
+    flex-grow: 1;
+    margin-left: 8px;
+    margin-top: 11px;
   }
 
   .messageBody {
-    margin-left: 8px;
     font-size: var(--owl-font-size-small);
-    margin-top: 11px;
-    @include breakPoint("sp") {
-      margin-top: 3px;
-    }
   }
 
-  .messageData {
+  .messageInfo {
+    font-size: var(--owl-font-size-small-v2);
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  }
+
+  .messageTime {
+    margin-left: 12px;
   }
 }

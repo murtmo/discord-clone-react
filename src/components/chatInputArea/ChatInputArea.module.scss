@@ -1,9 +1,7 @@
+@import "../../styles/variables.scss";
+
 .chatInputArea {
-  height: auto;
   margin-top: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: var(--owl-color-primary);
   border-radius: var(--owl-border-radius);
   color: #6d6f78;
@@ -18,20 +16,22 @@
   }
 
   .chatInputForm {
-    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     input {
-      padding: 16px;
+      width: 100%;
+      flex-grow: 1;
+      padding: 16px 16px 16px 8px;
       background: transparent;
+      color: #fff;
       border: none;
       outline: none;
       font-size: var(--owl-font-size-small);
-      color: #fff;
-      width: 100%;
-    }
-
-    .chatInputButton {
-      display: none;
+      @include breakPoint("sp") {
+        font-size: var(--owl-spacing-medium);
+      }
     }
   }
 }

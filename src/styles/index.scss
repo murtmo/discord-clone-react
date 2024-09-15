@@ -18,6 +18,19 @@ body {
   margin: 0;
   background-color: #fffdee;
   // background-color: var(--owl-color-text);
+  // ↓スクロールバーを考慮した高さ指定
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 従来の指定 */
+  height: 100svh; /* 小さいビューポート高さ */
+  height: 100lvh; /* 大きいビューポート高さ */
+  height: 100dvh; /* 動的ビューポート高さ */
+  min-height: -webkit-fill-available; /* iOS Safariでの問題に対処 */
+  // ↑
+
+  #root {
+    height: 100%;
+  }
 
   a,
   button {
@@ -26,6 +39,12 @@ body {
 
   button {
     border: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
   }
 }
 

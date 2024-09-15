@@ -3,9 +3,10 @@
 .App {
   margin-left: auto;
   margin-right: auto;
-  height: 100vh;
-  max-width: 600px;
-  padding-bottom: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   @include breakPoint("pc") {
     max-width: 600px;
     padding-bottom: 24px;
@@ -15,5 +16,9 @@
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 16px;
+  }
+
+  .main {
+    flex-grow: 1;
   }
 }
