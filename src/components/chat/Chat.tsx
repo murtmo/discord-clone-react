@@ -1,100 +1,39 @@
-import React, { useState } from "react";
-import "./Chat.scss";
+import { channelData } from "../../types/Types";
 
-import ChatHeader from "./ChatHeader";
-import ChatMessage from "./ChatMessage";
+// styles
+import styles from "./Chat.module.scss";
 
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
-import GifBoxIcon from "@mui/icons-material/GifBox";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-
-import { useAppSelector } from "../../app/hooks";
-import {
-  addDoc,
-  collection,
-  serverTimestamp,
-  DocumentData,
-  CollectionReference,
-} from "firebase/firestore";
-import { db } from "../../firebase";
+// redux
 import useSubCollection from "../../hooks/useSubCollection";
 
-const Chat = () => {
-  const [inputText, setInputText] = useState<string>("");
-  const channelId = useAppSelector((state) => state.channel.channelId);
+// components
+import ChatHeader from "../chatHeader/ChatHeader";
+import ChatInputArea from "../chatInputArea/ChatInputArea";
+import ChatMessageList from "../chatMessageList/ChatMessageList";
+import ChatStart from "../chatStart/ChatStart";
 
-  const channelName = useAppSelector((state) => state.channel.channelName);
-  const user = useAppSelector((state) => state.user.user);
+const Chat = (props: channelData) => {
+  const { channelId, channelName } = props;
 
   const { subDocuments: messages } = useSubCollection("channels", "messages");
 
-  const timestamp = serverTimestamp();
-
-  const collectionRef: CollectionReference<DocumentData> = collection(
-    db,
-    "channels",
-    String(channelId),
-    "messages"
-  );
-
-  const sendMessage = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-
-    // channels コレクションの中の messages コレクションの中に情報を入れる
-    // 情報... date(timestap), user, message(inputText)
-
-    await addDoc(collectionRef, {
-      message: inputText,
-      timestamp: timestamp,
-      user: user,
-    });
-
-    setInputText("");
-  };
-
   return (
-    <div className="chat">
-      <ChatHeader channelName={channelName} />
-      <div className="chatMessageWrap">
-        {messages.map((message, index) => {
-          return (
-            <ChatMessage
-              key={index}
-              message={message.message}
-              timestamp={message.timestamp}
-              user={message.user}
-            />
-          );
-        })}
-      </div>
-      <div className="chatInput">
-        <AddCircleOutlineIcon />
-        <form>
-          <input
-            type="text"
-            placeholder={channelName + "へメッセージを送る"}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setInputText(e.target.value);
-            }}
-            value={inputText}
-          />
-          <button
-            type="submit"
-            className="chatInputButton"
-            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-              sendMessage(e);
-            }}
-          ></button>
-        </form>
-        <div className="chatInputIcons">
-          <CardGiftcardIcon />
-          <GifBoxIcon />
-          <EmojiEmotionsIcon />
+    <div className={styles.chat}>
+      {channelId ? (
+        <>
+          <div className={styles.container}>
+            <ChatHeader channelName={channelName} channelId={channelId} />
+          </div>
+          <div className={`${styles.container} ${styles.chatMessageWrap}`}>
+            <ChatMessageList messages={messages} channelId={channelId} />
+          </div>
+          <ChatInputArea channelName={channelName} />
+        </>
+      ) : (
+        <div className={styles.chatStartWrap}>
+          <ChatStart />
         </div>
-      </div>
+      )}
     </div>
   );
 };

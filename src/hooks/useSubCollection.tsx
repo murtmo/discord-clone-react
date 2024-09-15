@@ -12,6 +12,7 @@ import {
 import { useAppSelector } from "../app/hooks";
 
 interface Messages {
+  id: string;
   message: string;
   timestamp: Timestamp;
   user: {
@@ -42,8 +43,10 @@ const useSubCollection = (
 
     onSnapshot(collectionRefOrderBy, (snapshot) => {
       let results: Messages[] = [];
+
       snapshot.docs.forEach((doc) => {
         results.push({
+          id: doc.id, // ドキュメントのIDを追加
           message: doc.data().message,
           timestamp: doc.data({ serverTimestamps: "estimate" }).timestamp,
           user: doc.data().user,

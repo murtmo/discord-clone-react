@@ -1,0 +1,54 @@
+@import "../../styles/variables.scss";
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  gap: 30px;
+
+  .loginTitle {
+    color: var(--owl-color-primary);
+    font-size: 32px;
+    @include breakPoint("sp") {
+      font-size: 24px;
+    }
+
+    .icon {
+      margin-left: 4px;
+      display: inline-block;
+      @include nosonosoAnimation();
+    }
+  }
+
+  .loginButtonList {
+    display: flex;
+    align-items: center;
+  }
+
+  .loginButton {
+    padding: var(--owl-spacing-small) var(--owl-spacing-medium);
+    border-radius: var(--owl-border-radius);
+    background-color: var(--owl-color-accent);
+    border: 1px solid var(--owl-color-accent);
+    transition-property: background-color, color, border;
+    transition-duration: var(--owl-transition-duration);
+
+    &.guest {
+      background-color: transparent;
+      border: 1px solid var(--owl-color-background);
+    }
+
+    & + .loginButton {
+      margin-left: 8px;
+    }
+  }
+
+  .loginButton:hover {
+    color: var(--owl-color-text);
+    background-color: var(--owl-color-background);
+    border: 1px solid var(--owl-color-background);
+  }
+}

@@ -1,0 +1,35 @@
+@import url(./reset.scss);
+@import url(./variables.scss);
+
+* {
+  margin: 0;
+  color: var(--owl-color-primary);
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--owl-font-size-medium);
+  line-height: 1.2;
+
+  img {
+    width: 100%;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: #fffdee;
+  // background-color: var(--owl-color-text);
+
+  a,
+  button {
+    cursor: pointer;
+  }
+
+  button {
+    border: none;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

@@ -1,0 +1,21 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 180px);
+  position: relative;
+
+  .container {
+    margin-top: 24px;
+  }
+
+  .chatMessageWrap {
+    overflow-y: scroll;
+    flex-grow: 1;
+  }
+
+  .chatStartWrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

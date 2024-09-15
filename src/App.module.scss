@@ -1,0 +1,19 @@
+@import "./styles/variables.scss";
+
+.App {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  max-width: 600px;
+  padding-bottom: 24px;
+  @include breakPoint("pc") {
+    max-width: 600px;
+    padding-bottom: 24px;
+  }
+  @include breakPoint("sp") {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+}

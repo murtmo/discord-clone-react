@@ -1,0 +1,31 @@
+.channelName {
+  & + .channelName {
+    margin-left: 8px;
+  }
+
+  h4 {
+    white-space: nowrap;
+    color: #7b7c85;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+  .channelNameHash {
+    margin-right: 4px;
+  }
+
+  &:hover,
+  &.isActive {
+    h4 {
+      color: var(--owl-color-text);
+      background-color: var(--owl-color-primary);
+      border-radius: var(--owl-border-radius);
+    }
+
+    .channelNameHash {
+      color: #fff;
+    }
+  }
+}

@@ -1,21 +1,31 @@
-import React from "react";
-import "./SidebarChannel.scss";
+import styles from "./ChannelListItem.module.scss";
+
+// firebase
 import { DocumentData } from "firebase/firestore";
+
+// redux
 import { useAppDispatch } from "../../app/hooks";
 import { setChannelInfo } from "../../features/channelSlice";
 
+// props
 type Props = {
   id: string;
   channel: DocumentData;
+  currentChannelId: string | null;
 };
 
-const SidebarChannel = (props: Props) => {
-  const { id, channel } = props;
+const ChannelListItem = (props: Props) => {
+  const { id, channel, currentChannelId } = props;
+
   const dispatch = useAppDispatch();
 
   return (
-    <div
-      className="sidebarChannel"
+    <li
+      className={
+        currentChannelId === id
+          ? `${styles.isActive} ${styles.channelName}`
+          : `${styles.channelName}`
+      }
       onClick={() =>
         dispatch(
           setChannelInfo({
@@ -26,11 +36,10 @@ const SidebarChannel = (props: Props) => {
       }
     >
       <h4>
-        <span className="sidebarChannelHash">#</span>
+        <span className={styles.channelNameHash}>🏠</span>
         {channel.channel.channelName}
       </h4>
-    </div>
+    </li>
   );
 };
-
-export default SidebarChannel;
+export default ChannelListItem;

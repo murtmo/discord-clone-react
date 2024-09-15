@@ -1,0 +1,37 @@
+.chatMessage {
+  padding: 16px;
+  background-color: var(--owl-color-background-light);
+  border-radius: var(--owl-border-radius);
+
+  & + .chatMessage {
+    margin-top: 8px;
+  }
+
+  .messageWrap {
+    display: flex;
+    align-items: center;
+
+    .MuiAvatar-root {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .messageData {
+    font-size: var(--owl-font-size-small);
+  }
+  .messageTime {
+    margin-left: 12px;
+  }
+
+  .messageBody {
+    margin-left: 8px;
+    font-size: var(--owl-font-size-small);
+  }
+
+  .messageData {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

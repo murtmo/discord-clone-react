@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initialChannelState } from "../Types";
+import { initialChannelState } from "../types/Types";
 
 const initialState: initialChannelState = {
   channelId: null,

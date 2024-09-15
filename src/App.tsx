@@ -1,16 +1,30 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./app/hooks";
-import { auth } from "./firebase";
-import { login, logout } from "./features/userSlice";
-import "./App.scss";
+import { useEffect } from "react";
 
-import Sidebar from "./components/sidebar/Sidebar";
+// styles
+import styles from "./App.module.scss";
+
+// firebase
+import { auth } from "./firebase";
+
+// redux
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { login, logout } from "./features/userSlice";
+
+// components
+import Navigation from "./components/navigation/Navigation";
 import Chat from "./components/chat/Chat";
 import Login from "./components/login/Login";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  const user = useAppSelector((state) => state.user.user);
   const dispatch = useAppDispatch();
+
+  // user data
+  const user = useAppSelector((state) => state.user.user);
+
+  // channel data
+  const channelId = useAppSelector((state) => state.channel.channelId);
+  const channelName = useAppSelector((state) => state.channel.channelName);
 
   useEffect(() => {
     auth.onAuthStateChanged((loginUser) => {
@@ -30,15 +44,18 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       {user ? (
         <>
-          <Sidebar />
-          <Chat />
+          <Navigation channelId={channelId} />
+          <main>
+            <Chat channelId={channelId} channelName={channelName} />
+          </main>
         </>
       ) : (
         <>
           <Login />
+          <Footer />
         </>
       )}
     </div>
