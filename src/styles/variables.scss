@@ -64,3 +64,14 @@ $breakpoints: (
     }
   }
 }
+
+.pc-only {
+  @include breakPoint("sp") {
+    display: none;
+  }
+}
+.sp-only {
+  @include breakPoint("pc") {
+    display: none;
+  }
+}
